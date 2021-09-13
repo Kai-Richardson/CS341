@@ -1,0 +1,131 @@
+/**
+ * CS341A
+ * By Kai Richardson
+ */
+
+body {
+    background-color: rgba(130, 214, 182, 0.1);
+}
+
+/* Make the title of our page ~fancy~ */
+h1 {
+    font-family: 'Brush Script MT', cursive;
+}
+
+/* Centers our hero header image and applies a border */
+.hero-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    border-color: #483010 #e1dab4;
+    border-radius: 2em 0 2em 0;
+    border-style: solid;
+    border-width: 0.5em;
+}
+
+/* Fancy rainbow text for the header */
+.rbw-text {
+    background-image: repeating-linear-gradient(90deg, violet, indigo, blue, green, orange, red, violet);
+    text-align: center;
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 10s ease infinite;
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 0 50%
+    }
+    50% {
+        background-position: 100% 25%
+    }
+    100% {
+        background-position: 0 50%
+    }
+}
+
+/* Uses flex to space the order information properly */
+header, .row {
+    display: flex; /* aligns all children in a row */
+}
+.col {
+    flex: 1; /* equally spaces items */
+}
+
+/* Give the main area a calming look */
+.main {
+    margin-top: 1em;
+    padding: 1em;
+    background-color: thistle;
+}
+
+#thanks {
+    visibility: hidden;
+    margin-top: 1em;
+    padding: 0.5em;
+    font-size: large;
+    color: aliceblue;
+    background-color: palevioletred;
+}
+
+/* Fancy notes area with a slick background */
+.notes {
+    font-family: 'Georgia', serif;
+    margin-top: 1em;
+    padding: 1em;
+    color: rebeccapurple;
+    font-size: large;
+    background-color: blanchedalmond;
+}
+
+/* Give the order button a margin */
+.order-btn {
+    margin-top: 0.5em;
+    color: blanchedalmond;
+    background-color: darkslategray;
+    border: none;
+    padding: 0.25em 0.75em;
+    font-size: 1.5em;
+}
+
+/* Month menu picker, adapted from https://stackoverflow.com/a/21984146 */
+
+#stats ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#select-menu > li {
+    display: inline-block;
+    border: 1px solid rebeccapurple;
+    position: relative;
+}
+#select-menu li ul {
+    position: absolute;
+    border: 1px solid rebeccapurple;
+    width: 0;
+    max-height: 0;
+    overflow: hidden;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+    -webkit-transition: 1s;
+    transition: 1s;
+}
+#select-menu li:hover ul {
+    overflow: auto;
+    max-height: 80px;
+    min-width: 3em;
+}
+
+/* Fun selection color */
+::-moz-selection {
+    background: #82d6b6;
+}
+
+::selection {
+    background: #82d6b6;
+}

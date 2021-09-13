@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cheesecake Order Form - Kai Richardson</title>
+    <link rel="stylesheet" href="main.css">
+    <meta name="author" content="Kai Richardson">
+</head>
+<body>
+<h1 class="rbw-text">
+    Cheesecake Order Form
+</h1>
+<img
+        class="hero-img"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Mondays_at_Il_Forno_-_Cheesecake_with_strawberry_sauce.jpg/1599px-Mondays_at_Il_Forno_-_Cheesecake_with_strawberry_sauce.jpg"
+        height="200em"
+        alt="Picture of a delicious cheesecake"
+>
+
+<!-- Area to hold our main ordering options -->
+<div id="order-zone">
+    <div class="main">
+        <section>
+            <header>
+                <div class="col">Quantity</div>
+                <div class="col">Topping</div>
+            </header>
+            <div class="row">
+                <div class="col">
+                    <select id="quantity-cakes">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
+                </div>
+
+                <div class="col">
+                    <label>
+                        <input type="radio" id="radio-plain" name="topping" value="Plain">
+                        Plain
+                    </label>
+
+                    <label><input type="radio" id="radio-cherry" name="topping" value="Cherry">
+                        Cherry
+                    </label>
+
+                    <label>
+                        <input type="radio" id="radio-chocolate" name="topping" value="Chocolate">
+                        Chocolate
+                    </label>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Div to hold our notes -->
+    <div class="notes">
+        <label>
+            Notes:
+            <br>
+            <textarea id="notes" placeholder="Enter any special instructions here."></textarea>
+        </label>
+    </div>
+
+    <!-- Order button -->
+    <button id="order" class="order-btn">Order</button>
+
+    <!-- Submission -->
+    <div id="thanks">
+        Thank you! Your order has been placed.
+        <br>
+        <span id="thanks-details">Details: </span>
+    </div>
+</div>
+
+<!-- Statistics -->
+<h2 id="stats">
+    <ul id='select-menu'>Total orders for
+        <li><span id="selected-month">Jan</span>
+            <ul>
+                <li>Jan</li>
+                <li>Feb</li>
+                <li>Mar</li>
+                <li>May</li>
+                <li>Jun</li>
+                <li>Jul</li>
+                <li>Aug</li>
+                <li>Sep</li>
+                <li>Oct</li>
+                <li>Nov</li>
+                <li>Dec</li>
+            </ul>
+        </li>:
+    </ul>
+</h2>
+<ul>
+    <li>31 plain</li>
+    <li>11 cherry</li>
+    <li>17 chocolate</li>
+</ul>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    // Order submission
+    jQuery('#order').click(function () {
+        const notes = $("#notes");
+        if (notes.val().toLowerCase().includes("vegan")) {
+            alert("Warning: Our Cheesecakes contain dairy!")
+        } else {
+            document.getElementById("order-zone").style.visibility = "hidden"
+            document.getElementById("thanks").style.visibility = "visible"
+
+            const cake_num = $("#quantity-cakes option:selected").text();
+            const cake_type = $('input[name="topping"]:checked').val() ?? "None";
+            const cake_notes = notes.val();
+
+            $("#thanks-details").text(`Quantity: ${cake_num} | Topping: ${cake_type} | Notes: ${cake_notes}`)
+        }
+    });
+
+    jQuery("#select-menu ul li").click(function(){
+        $("#select-menu ul li").css("color","inherit");
+        $(this).css("color","rebeccapurple");
+        const selected = $(this).text()
+        $('#selected-month').text(`${selected}`)
+    });
+</script>
+</html>
