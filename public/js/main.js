@@ -1,4 +1,5 @@
 
+
 handleOrdering = function() {
     const notes = $("#notes");
     if (notes.val().toLowerCase().includes("vegan")) {
