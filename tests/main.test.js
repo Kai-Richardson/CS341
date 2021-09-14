@@ -1,5 +1,6 @@
 /**
  * @jest-environment jsdom
+ * @author Kai Richardson
  */
 
 var fs = require('fs');

@@ -1,4 +1,6 @@
-
+/**
+ * @author Kai Richardson
+ */
 
 handleOrdering = function() {
     const notes = $("#notes");
