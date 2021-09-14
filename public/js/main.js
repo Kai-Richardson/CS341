@@ -1,4 +1,5 @@
-jQuery('#order').click(function () {
+
+handleOrdering = function() {
     const notes = $("#notes");
     if (notes.val().toLowerCase().includes("vegan")) {
         alert("Warning: Our Cheesecakes contain dairy!")
@@ -12,11 +13,18 @@ jQuery('#order').click(function () {
 
         $("#thanks-details").text(`Quantity: ${cake_num} | Topping: ${cake_type} | Notes: ${cake_notes}`)
     }
-});
+};
 
-jQuery("#select-menu ul li").click(function(){
+jQuery('#order').click(handleOrdering);
+
+
+
+
+menuColor = function() {
     $("#select-menu ul li").css("color","inherit");
     $(this).css("color","rebeccapurple");
     const selected = $(this).text()
     $('#selected-month').text(`${selected}`)
-});
+}
+
+jQuery("#select-menu ul li").click(menuColor);
